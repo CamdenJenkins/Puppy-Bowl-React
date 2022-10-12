@@ -17,3 +17,5 @@ const makePuppy = async (name, breed) => {
   const result = await response.json();
   return result;
 };
+
+export default makePuppy;

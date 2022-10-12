@@ -5,7 +5,7 @@ const getPuppies = async () => {
     "https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-PT-WEB-FT/players"
   );
   const result = await response.json();
-  return result;
+  return result.data.players;
 };
 
 export default getPuppies;
