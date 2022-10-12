@@ -1,4 +1,6 @@
 import "./App.css";
+import React from "react";
+import getPuppies from "./ajaxHelpers/getPuppies";
 
 function App() {
   return <div className="App"></div>;
