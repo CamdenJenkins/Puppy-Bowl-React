@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import getPuppies from "../ajaxHelpers/getPuppies";
+import { useNavigate } from "react-router-dom";
+import getPuppies from "../ajaxHelpers/puppyHelpers";
 
 const Dogs = () => {
+  const navigate = useNavigate();
+
   const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
@@ -24,6 +27,13 @@ const Dogs = () => {
             </div>
 
             <img src={dog.imageUrl} />
+            <button
+              onClick={() => {
+                navigate(`/singleDogView/${dog.id}`);
+              }}
+            >
+              See Details
+            </button>
           </div>
         );
       })}
