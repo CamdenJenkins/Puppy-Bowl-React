@@ -2,4 +2,20 @@
   display: flex;
   justify-content: space-between;
   font-size: larger;
+  background-color: orange;
+
+  height: 4vh;
+  align-items: flex-end;
+  position: sticky;
+  top: 0;
+}
+
+.home {
+  color: white;
+  font-size: x-large;
+}
+
+.addDog {
+  color: white;
+  font-size: x-large;
 }

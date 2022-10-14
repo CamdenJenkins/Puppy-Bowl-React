@@ -33,7 +33,9 @@ const SingleDogView = () => {
         <h5>Breed: {singleDog.breed} </h5>
         <h6>Status: {singleDog.status}</h6>
         <img className={styles.singleImg} src={singleDog.imageUrl} />
-        <button onClick={deleteDog}>Delete Puppy</button>
+        <button className={styles.deleteButton} onClick={deleteDog}>
+          Delete Puppy
+        </button>
       </div>
     </div>
   );

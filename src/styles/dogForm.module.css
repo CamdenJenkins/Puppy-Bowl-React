@@ -1,0 +1,11 @@
+.dogForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.dogFormPage {
+  background-color: lightgray;
+  height: 100vh;
+}

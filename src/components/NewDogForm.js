@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { makePuppy } from "../ajaxHelpers/puppyHelpers";
+import styles from "../styles/dogForm.module.css";
 
 const NewDogForm = () => {
   const navigate = useNavigate();
@@ -9,38 +10,40 @@ const NewDogForm = () => {
   const [breed, setBreed] = useState("");
 
   return (
-    <div>
-      <form
-        className="pure-form pure-form-stacked"
-        onSubmit={async (e) => {
-          e.preventDefault();
-          const result = await makePuppy(name, breed);
-          navigate("/");
-        }}
-      >
-        <h3> Create a New Dog </h3>
-        <label>Name:</label>
-        <input
-          value={name}
-          type="text"
-          placeholder="name"
-          onChange={(e) => {
-            setName(e.target.value);
+    <div className={styles.dogFormPage}>
+      <div className={styles.dogForm}>
+        <form
+          className="pure-form pure-form-stacked"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const result = await makePuppy(name, breed);
+            navigate("/");
           }}
-        />
-        <label>Breed:</label>
-        <input
-          value={breed}
-          onChange={(e) => {
-            setBreed(e.target.value);
-          }}
-          type="text"
-          placeholder="breed"
-        />
-        <button className="pure-button pure-button-primary" type="submit">
-          Submit
-        </button>
-      </form>
+        >
+          <h3> Create a New Dog </h3>
+          <label>Name:</label>
+          <input
+            value={name}
+            type="text"
+            placeholder="name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <label>Breed:</label>
+          <input
+            value={breed}
+            onChange={(e) => {
+              setBreed(e.target.value);
+            }}
+            type="text"
+            placeholder="breed"
+          />
+          <button className="pure-button pure-button-primary" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
