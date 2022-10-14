@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePuppyById, getPuppyById } from "../ajaxHelpers/puppyHelpers";
-
+import styles from "../styles/singleCard.module.css";
 const SingleDogView = () => {
   const navigate = useNavigate();
 
@@ -24,15 +24,15 @@ const SingleDogView = () => {
   };
 
   return (
-    <div className="single-dog-container">
-      <div className="single-dog">
-        <div className="single-dog-header">
+    <div className={styles.singleDogContainer}>
+      <div className={styles.singleDog}>
+        <div className={styles.singleDogHeader}>
           <h4>{singleDog.name}</h4>
-          <p className="dog-id"> #{singleDog.id}</p>
+          <p className={styles.dogId}> #{singleDog.id}</p>
         </div>
         <h5>Breed: {singleDog.breed} </h5>
         <h6>Status: {singleDog.status}</h6>
-        <img className="single-img" src={singleDog.imageUrl} />
+        <img className={styles.singleImg} src={singleDog.imageUrl} />
         <button onClick={deleteDog}>Delete Puppy</button>
       </div>
     </div>

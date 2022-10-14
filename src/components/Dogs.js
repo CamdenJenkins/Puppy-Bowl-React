@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import getPuppies from "../ajaxHelpers/puppyHelpers";
+import DogCard from "./DogCard";
+import styles from "../styles/dogCards.module.css";
 
 const Dogs = () => {
-  const navigate = useNavigate();
-
   const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
@@ -17,25 +17,9 @@ const Dogs = () => {
   }, []);
 
   return (
-    <div className="dog-container">
+    <div className={styles.dogContainer}>
       {dogs.map((dog) => {
-        return (
-          <div className="Dogs" key={dog.id}>
-            <div className="dog-header">
-              <p className="dog-name">{dog.name}</p>
-              <p className="dog-id">#{dog.id}</p>
-            </div>
-
-            <img src={dog.imageUrl} />
-            <button
-              onClick={() => {
-                navigate(`/singleDogView/${dog.id}`);
-              }}
-            >
-              See Details
-            </button>
-          </div>
-        );
+        return <DogCard dog={dog} key={dog.id} />;
       })}
     </div>
   );
